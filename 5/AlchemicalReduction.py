@@ -32,10 +32,12 @@ def collapseList(polymer):
 
 
 def partOne():
-    polymer = parseFile("input.txt")
+    #polymer = parseFile("input.txt")
     #print(polymer)
 
+    polymer = list("abcdefghijklLKJIHGFEDCBA")
     polymer = collapseList(polymer)
+    print(polymer)
     print('Remaining units: %d' % len(polymer))
 
 '''
@@ -69,11 +71,11 @@ def partTwo():
     for pair in uniquePairs:
         print(pair)
 
-        tempPolymer = polymer[:]
+        tempPolymer = list()
         # Remove all units of selected type
-        for i, char in enumerate(tempPolymer):
-            if char in pair:
-                del tempPolymer[i]
+        for char in polymer: #TODO change to addition
+            if char not in pair:
+                tempPolymer.append(char)
 
         print('Length after removal: %d' % len(tempPolymer))
 
